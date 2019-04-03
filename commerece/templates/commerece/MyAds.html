@@ -1,0 +1,147 @@
+{% extends 'commerece/home.html' %}
+
+
+{% block body %}
+    {% load staticfiles %}
+
+
+
+
+
+
+
+
+
+    <br><br><br>
+    <div class="container">
+    <div class="row">
+
+        <div  class="col-md-3">
+            <div >
+
+                <h5> Filter</h5>
+                <form class="navbar-form navbar-right" role="search" method="get" action="">
+                    <div class="form-group">
+                        <input style="" class="form-control mr-sm-2" type="search" placeholder="Search"
+                               aria-label="Search"
+                               required>
+                    </div>
+                </form>
+                {% comment %} <hr style="size: 4px">{% endcomment %}
+                <div>
+
+                    <div class="agileits-navi_search">
+                        <form action="#" method="post">
+                            <select id="agileinfo-nav_search" style="" name="agileinfo_search" class="border"
+                                    required="">
+                                <option value="">Status</option>
+                                <option type="radio" value="Televisions">Televisions</option>
+
+                                <option value="Computers">Computers</option>
+                                <option value="Appliances">Appliances</option>
+
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% for list in ads_start|slice:":1" %}
+            <div class="col-md-9" >
+                <br>
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <div  class="row">
+                                {% if seller_request == 'seller_request' %}
+                            <a href="{{ list.id }}/{{ list.user_key_id}}" > <img src="{{ list.product_image.url }}"   style="height: 150px; width: 250px; margin-left: 10px" alt=" " class="img-fluid" ></a>
+                          {% else %}
+                            <img src="{{ list.product_image.url }}"   style="height: 150px; width: 250px; margin-left: 10px" alt=" " class="img-fluid" >
+                           {% endif %}
+
+                           <div class="col-sm-2"><span> Rs : {{ list.product_price }}</span></div>
+                            <div class="col-sm-3"><p> Name : {{ list.product_name }}</p></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-sm-1">
+                             <div class="btn-group dropleft" role="group">
+                                <span class="dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <i class="fas fa-ellipsis-h"></i></span>
+                                 <div class="dropdown-menu">
+                                     <a href="/delete/{{ list.id }}/seller"> <h6 class="dropdown-header">Remove Post</h6><a class="dropdown-item" href="#">Mark as Sold</a>
+                                     </a><a class="dropdown-item" href="#">Rebublish</a>
+                                 </div>
+                             </div>
+                            </div>
+
+                             <div class="col-md-4">{{ list.created_at.date }}</div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+        {% endfor %}
+
+
+
+
+    <div class="row">
+        {% for list in ads %}
+
+            <div  class="offset-3">
+            </div>
+
+
+            <div class="col-md-9"  style="">
+                <br>
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <div  class="row">
+                            {% if seller_request == 'seller_request' %}
+                            <a href="{{ list.id }}/{{ list.user_key_id}}/{{ 'seller' }}" > <img src="{{ list.product_image.url }}"   style="height: 150px; width: 250px; margin-left: 10px" alt=" " class="img-fluid" ></a>
+                          {% else %}
+                            <img src="{{ list.product_image.url }}"   style="height: 150px; width: 250px; margin-left: 10px" alt=" " class="img-fluid" >
+                           {% endif %}
+
+                            <div class="col-sm-2"><span> Rs : {{ list.product_price }}</span></div>
+                            <div class="col-sm-3"><p> Name : {{ list.product_name }}</p></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-sm-1">
+                             <div class="btn-group dropleft" role="group">
+                                <span class="dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <i class="fas fa-ellipsis-h"></i></span>
+                                 <div class="dropdown-menu">
+                                    <a href="/delete/{{ list.id }}/seller">  <h6 class="dropdown-header">Remove Post</h6></a>
+                                        <a class="dropdown-item" href="#">Mark as Sold</a>
+                                     <a class="dropdown-item" href="#">Rebublish</a>
+                                 </div>
+                             </div>
+                            </div>
+
+                             <div class="col-md-4">{{ list.created_at.date }}</div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        {% endfor %}
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+{%  endblock %}

@@ -1,0 +1,454 @@
+{% extends 'commerece/base.html' %}
+
+
+{% block body %}
+ {% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'commerece/css/contact_styles.css' %}"/>
+{% comment %}
+<!DOCTYPE html>
+<html lang="zxx" xmlns:border-style="http://www.w3.org/1999/xhtml" xmlns:border-width="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title> {% block title %}Mandi{% endblock %}</title>
+    {% load staticfiles %}
+    <title>Electro Store Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Electro Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+
+    <!-- //Meta tag Keywords -->
+     <link rel="stylesheet" type="text/css" href="{% static 'commerece/css/style.css' %}"/>
+      <link rel="stylesheet" type="text/css" href="{% static 'commerece/css/contact_styles.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'commerece/css/styletwo.css' %}"/>
+
+   <!-- Custom-Files -->
+
+	<link href="{% static 'commerece/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- Bootstrap css -->
+
+	<!-- Main css -->
+	<link rel="stylesheet" href="{% static 'commerece/css/fontawesome-all.css' %}">
+	<!-- Font-Awesome-Icons-CSS -->
+	<link href="{% static 'commerece/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- pop-up-box -->
+	<link href="{% static 'commerece/css/menu.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- Custom-Files -->
+
+
+
+
+    <!-- web fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<!-- top-header -->
+	<div class="agile-main-top">
+		<div class="container-fluid">
+			<div class="row main-top-w3l py-2">
+				<div class="col-lg-4 header-most-top">
+					<p class="text-white text-lg-left text-center">Offer Zone Top Deals & Discounts
+						<i class="fas fa-shopping-cart ml-1"></i>
+					</p>
+				</div>
+				<div class="col-lg-8 header-right mt-lg-0 mt-2">
+					<!-- header lists -->
+					<ul>
+						<li class="text-center border-right text-white">
+							<a class="play-icon popup-with-zoom-anim text-white" href="#small-dialog1">
+								<i class="fas fa-map-marker mr-2"></i>Select Location</a>
+						</li>
+						<li class="text-center border-right text-white">
+							<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
+								<i class="fas fa-truck mr-2"></i>Track Order</a>
+						</li>
+						<li class="text-center border-right text-white">
+							<i class="fas fa-phone mr-2"></i> 001 234 5678
+						</li>
+						<li class="text-center border-right text-white">
+							<a href="/logout/" class="text-white">
+								<i class="fas fa-sign-in-alt mr-2"></i> Log out </a>
+						</li>
+                            <li class="text-center text-white">
+                                <big>{{ user.username }}</big> </a>
+                        </li>
+
+
+					</ul>
+					<!-- //header lists -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Button trigger modal(select-location) -->
+	<div id="small-dialog1" class="mfp-hide">
+		<div class="select-city">
+			<h3>
+				<i class="fas fa-map-marker"></i> Please Select Your Location</h3>
+			<select class="list_of_cities">
+				<optgroup label="Popular Cities">
+					<option selected style="display:none;color:#eee;">Select City</option>
+					<option>Birmingham</option>
+					<option>Atlanta</option>
+					<option>Honolulu</option>
+					<option>Boise</option>
+					<option>Chicago</option>
+					<option>Indianapolis</option>
+				</optgroup>
+				<optgroup label="Wyoming">
+					<option>Cheyenne</option>
+					<option>Casper</option>
+					<option>Laramie</option>
+					<option>Gillette</option>
+					<option>Rock Springs</option>
+				</optgroup>
+			</select>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- //shop locator (popup) -->
+
+	<!-- //top-header -->
+
+	<!-- header-bottom-->
+	<div class="header-bot">
+		<div class="container">
+			<div class="row header-bot_inner_wthreeinfo_header_mid">
+				<!-- logo -->
+				<div class="col-md-3 logo_agile">
+					<h1 class="text-center">
+						<a href="index.html" class="font-weight-bold font-italic">
+							<img src="{% static 'commerece/images/logo2.png' %}" alt=" " class="img-fluid">Sabzi Mandi
+						</a>
+					</h1>
+				</div>
+				<!-- //logo -->
+				<!-- header-bot -->
+				<div class="col-md-9 header mt-4 mb-md-0 mb-4">
+					<div class="row">
+						<!-- search -->
+						<div class="col-10 agileits_search">
+							<form class="form-inline" action="#" method="post">
+								<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+								<button class="btn my-2 my-sm-0" type="submit">Search</button>
+							</form>
+						</div>
+						<!-- //search -->
+						<!-- cart details -->
+						<div class="col-2 top_nav_right text-center mt-sm-0 mt-2">
+							<div class="wthreecartaits wthreecartaits2 cart cart box_1">
+								<form action="#" method="post" class="last">
+									<input type="hidden" name="cmd" value="_cart">
+									<input type="hidden" name="display" value="1">
+									<button class="btn w3view-cart" type="submit" name="submit" value="">
+										<i class="fas fa-cart-arrow-down"></i>
+									</button>
+								</form>
+							</div>
+						</div>
+						<!-- //cart details -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- shop locator (popup) -->
+	<!-- //header-bottom -->
+	<!-- navigation -->
+	<div class="navbar-inner">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="agileits-navi_search">
+					<form action="#" method="post">
+						<select id="agileinfo-nav_search" name="agileinfo_search" class="border" required="">
+							<option value="">All Categories</option>
+							<option value="Televisions">Fruits</option>
+							<option value="Headphones">Vegetables</option>
+							<option value="Computers">Pumpkin</option>
+							<option value="Appliances">Lady Fingers</option>
+
+						</select>
+					</form>
+				</div>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto text-center mr-xl-5">
+						<li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link" href="index.html">Home
+								<span class="sr-only">(current)</span>
+							</a>
+
+						</li>
+
+						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link" href="">Seller</a>
+						</li>
+						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link" href=""><span>Buyer</span></a>
+						</li>
+						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link" href="details">My Ads</a>
+						</li>
+						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link" href="product.html">New Arrivals</a>
+						</li>
+						<li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Pages
+							</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="product.html">Product 1</a>
+								<a class="dropdown-item" href="product2.html">Product 2</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="single.html">Single Product 1</a>
+								<a class="dropdown-item" href="single2.html">Single Product 2</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="checkout.html">Checkout Page</a>
+								<a class="dropdown-item" href="payment.html">Payment Page</a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Contact Info -->
+
+	<div class="contact_info">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="contact_info_container d-flex flex-lg-row flex-column justify-content-between align-items-between">
+
+						<!-- Contact Item -->
+						<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+							<div class="contact_info_image"><img src="{% static 'commerece/images/contact_1.png' %}" alt=""></div>
+							<div class="contact_info_content">
+								<div class="contact_info_title">Phone</div>
+								<div class="contact_info_text">+92 303 644 5075</div>
+							</div>
+						</div>
+
+						<!-- Contact Item -->
+						<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+							<div class="contact_info_image"><img src="{% static 'commerece/images/contact_2.png' %}" alt=""></div>
+							<div class="contact_info_content">
+								<div class="contact_info_title">Email</div>
+								<div class="contact_info_text">manzoorhussain075@gmail.com</div>
+							</div>
+						</div>
+
+						<!-- Contact Item -->
+						<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+							<div class="contact_info_image"><img src="{% static 'commerece/images/contact_3.png' %}" alt=""></div>
+							<div class="contact_info_content">
+								<div class="contact_info_title">Address</div>
+								<div class="contact_info_text">30Km Talagang road Mianwali</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contact Form -->
+
+	<div class="contact_form">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="contact_form_container">
+						<div class="contact_form_title">Get in Touch</div>
+
+						<form method="post" action="message" id="contact_form">
+                            {% csrf_token %}
+							<div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+								<input type="text" name="name" id="contact_form_name"  class="contact_form_name input_field" placeholder="Your name" required="required" data-error="Name is required.">
+								<input type="email" name="sender_mail" id="contact_form_email" class="contact_form_email input_field" placeholder="Your email" required="required" data-error="Email is required.">
+								<input type="tel" name="mobile_number" id="contact_form_phone" class="contact_form_phone input_field" placeholder="Your phone number" required>
+							</div>
+							<div class="contact_form_text">
+								<textarea id="contact_form_message" class="text_field contact_form_message" name="messsage" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+							</div>
+							<div class="contact_form_button">
+								<button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel"></div>
+	</div>
+
+
+
+	<!-- //navigation -->
+    <style>
+
+        .login-form-grids{
+	width: 45%;
+    padding: 3em;
+	background:#F7F7F9;
+	margin:3em auto 0;
+}
+.login-form-grids input[type="email"],.login-form-grids input[type="password"],.login-form-grids input[type="text"]{
+	outline: none;
+    border: 1px solid #DBDBDB;
+    padding: 10px 10px 10px 10px;
+    font-size: 14px;
+    color: #999;
+    display: block;
+    width: 100%;
+}
+
+.login-form-grids input[type="password"]{
+	margin:1em 0 0;
+}
+.forgot {
+    margin: 1.5em 0 0;
+}
+.login-form-grids input[type="submit"]{
+	outline: none;
+    border: none;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #fff;
+    display: block;
+    width: 100%;
+    background:#3399cc;
+    margin: 1.5em 0 0;
+}
+.login-form-grids input[type="submit"]:hover{
+	background:#fe9126;
+}
+.login-form-grids ::-webkit-input-placeholder{
+	color:#999;
+}
+.forgot a{
+	color:#212121;
+	font-size:14px;
+	text-decoration:none;
+}
+.forgot a:hover{
+	color:#d8703f;
+}
+.login h4{
+	margin: 2em 0 0.5em;
+    font-size: 1.5em;
+    color: #212121;
+    text-align: center;
+    text-transform: uppercase;
+}
+.login p{
+	font-size:14px;
+	color:#999;
+	line-height:1.8em;
+	margin:0;
+	text-align:center;
+}
+.login p a{
+	color:#fe9126;
+	text-decoration:none;
+	font-size: 1.2em;
+	padding: 0 .5em;
+}
+.login p a:hover{
+	color:#212121;
+}
+.login p a span{
+	top: 0.1em;
+    font-size: .7em;
+    left: 0.3em;
+}
+.login {
+    padding: 5em 0;
+}
+.my_ads{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+    </style>
+
+
+
+
+
+
+
+{% comment %} #{% for album in user %}{% endcomment %}
+<br>
+<br>
+<br><br><br>
+    <a href="/order/"><h1>hussain Contavt Page</h1>{{ user.username }} {{ user.id }}</a>
+
+
+   <h1>Manzoor Hussain khan{{ user.email }}</h1>
+
+{% endblock %}
+
+

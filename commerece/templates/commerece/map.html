@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 40%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="latitudeLabel"></div>
+    <div id="longitudeLabel"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+              // console.log(position.coords.longitude)
+              codeLatLng(position.coords.latitude,position.coords.longitude);
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+      function my (lat,lang) {
+
+          map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 6
+          });
+
+          alert('in');
+
+          // Try HTML5 geolocation.
+
+
+          var sydney = new google.maps.LatLng(lat, lang);
+
+
+          infowindow = new google.maps.InfoWindow();
+
+          map = new google.maps.Map(
+              document.getElementById('map'), {center: sydney, zoom: 15});
+
+          var request = {
+              query: 'Museum of Contemporary Art Australia',
+              fields: ['name', 'geometry'],
+          };
+
+          service = new google.maps.places.PlacesService(map);
+
+
+          service.findPlaceFromQuery(request, function (results, status) {
+              if (status === google.maps.places.PlacesServiceStatus.OK) {
+                  for (var i = 0; i < results.length; i++) {
+                      createMarker(results[i]);
+                  }
+
+                  map.setCenter(results[0].geometry.location);
+              }
+          });
+
+
+          function createMarker(place) {
+              var marker = new google.maps.Marker({
+                  map: map,
+                  position: place.geometry.location
+              });
+
+
+              google.maps.event.addListener(marker, 'click', function () {
+                  infowindow.setContent(place.name);
+
+                 // infowindow.open(map, this);
+
+              });
+              google.maps.event.addListener(marker, 'dragend', function (event) {
+    document.getElementById("latitudeLabel").value = event.latLng.lat();
+    document.getElementById("longitudeLabel").value = event.latLng.lng();
+});
+
+             // alert(txtCityName);
+
+
+
+          }
+      }
+
+
+
+
+
+      var geocoder;
+      function codeLatLng(lat, lng) {
+           geocoder = new google.maps.Geocoder();
+
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+      console.log(results)
+        if (results[1]) {
+         //formatted address
+         alert(results[0].formatted_address)
+            var fruits = [results[0].formatted_address].toString();
+          alert(fruits);
+
+          var nameArr = fruits.split(',');
+          alert("District"+ nameArr[0]+ "Province"+nameArr[1]);
+
+
+        //find country name
+             for (var i=0; i<results[0].address_components.length; i++) {
+            for (var b=0;b<results[0].address_components[i].types.length;b++) {
+
+            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
+                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                    //this is the object you are looking for
+                    city= results[0].address_components[i];
+
+                   // break;
+                }
+            }
+        }
+        //city data
+        //alert(city.short_name + " " + city.long_name)
+            alert("Province"+city.short_name +"long Name " + city.long_name +"last" + city);
+
+
+        } else {
+          alert("No results found");
+        }
+      } else {
+        alert("Geocoder failed due to: " + status);
+      }
+    });
+  }
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq-ujHaiq-3WfIa0KDqJY_aew7pzGxdmc&callback=initMap">
+    </script>
+  </body>
+</html>

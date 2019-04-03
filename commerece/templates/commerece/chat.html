@@ -1,0 +1,307 @@
+{% extends 'commerece/home.html' %}
+
+
+{% block body %}
+ {% load staticfiles %}
+
+
+
+
+	<!--Coded With Love By Mutiullah Samim-->
+         <br><br><br><br><br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+                    <div class="card mb-sm-3 mb-md-0 contacts_card">
+					<div class="card-header">
+						<div class="input-group">
+							<input type="text"  placeholder="Search..." name="" class="form-control search">
+							<div class="input-group-prepend">
+								<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="card-body contacts_body">
+						<ui class="contacts">
+						<li class="active">
+                        {% for post in conversation%}
+
+                            {% for chat_use in user_list%}
+
+
+                              {% if chat_use.username == post.receiver_name  or  chat_use.username == post.sender_name%}
+
+
+
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+								<a href="http://127.0.0.1:8000/inbox/{{ post.post_key }}/{{ chat_use.username}}">	<img src="{{ chat_use.profile.image.url }}" class="rounded-circle user_img"></a>
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>{{ chat_use.username }}</span>
+									<p>{{ chat_use.username }}is online</p>
+								</div>
+							</div>
+                                {% endif %}
+
+
+						</li>
+                        {% endfor %}
+                        {% endfor %}
+
+						<li>
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-circle user_img">
+									<span class="online_icon offline"></span>
+								</div>
+								<div class="user_info">
+									<span>Sahar Darya</span>
+									<p>Sahar left 7 mins ago</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="https://i.pinimg.com/originals/54/6e/6d/546e6d4c6ce4322e6aa3b2f8ca73ac28.jpg" class="rounded-circle user_img">
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>Yolduz Rafi</span>
+									<p>Yolduz is online</p>
+								</div>
+							</div>
+						</li>
+
+						</ui>
+					</div>
+
+
+					<div class="card-footer"></div>
+				</div></div>
+
+
+				<div class="col-md-8 chat">
+{%  if first_chat == 'second' %}
+
+					<div class="card">
+
+						<div class="card-header msg_head">
+
+							<div class="d-flex bd-highlight">
+
+								<div class="img_cont">
+                                  {% for number in chat_user %}
+									 <img src="{{  number.profile.image.url }}" class="rounded-circle user_img">
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>Chat with {{ number.username }}</span>
+									<p>1767 Messages</p>
+								</div>
+                                {% endfor %}
+								<div class="video_cam">
+									<span><i class="fas fa-video"></i></span>
+									<span><i class="fas fa-phone"></i></span>
+								</div>
+							</div>
+							<span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+							<div class="action_menu">
+								<ul>
+									<li><i class="fas fa-user-circle"></i> View profile</li>
+									<li><i class="fas fa-users"></i> Add to close friends</li>
+									<li><i class="fas fa-plus"></i> Add to group</li>
+									<li><i class="fas fa-ban"></i> Block</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card-body msg_card_body">
+                            <div class="row" style="width: 100%; height: 80px; background-color: #82ccdd">
+                              {% for image in chat_ads  %}
+
+                              <img alt="" title="" src="{{  image.product_image.url }}" width="100" height="80">
+                              <p style="text-align: center; margin-left: 30px">Types:  {{  image.product_name}}</p>
+                              <p style="text-align: center; margin-left: 200px"> Price : {{  image.product_price}}</p>
+                              {% endfor %}
+                            </div>
+                            <br>
+
+                            {% for message in test %}
+                            {% if message.sender == current_user %}
+							<div class="d-flex justify-content-start mb-4">
+								<div class="img_cont_msg">
+									<img src="{{  user.profile.image.url }}" class="rounded-circle user_img_msg">
+								</div>
+
+
+								<div class="msg_cotainer">
+                                    <small>{{ message.message }}</small>
+                                    <br>
+									<span class="msg_time">{{ message.timestamp }}</span>
+								</div>
+							</div>
+							{% else %}
+							{% comment %}<div class="d-flex justify-content-start mb-4">
+                                <div class="img_cont_msg">
+                                    {% for number in chat_user %}
+									<img src="{{ number.profile.image.url }}" class="rounded-circle user_img_msg">
+									{% endfor %}
+								</div>
+                                <div class="msg_cotainer">
+                                    <small>{{ message.message }}</small>
+                                    <br>
+									<span class="msg_time">{{ message.timestamp }}</span>
+								</div>
+							</div>
+{% endcomment %}
+                               <div class="d-flex justify-content-end mb-4">
+								<div class="msg_cotainer_send">
+                                    <small>{{ message.message }}</small>
+                                    <br>
+									<span class="msg_time">{{ message.timestamp }}</span>
+								</div>
+								 <div class="img_cont_msg">
+                                    {% for number in chat_user %}
+									<img src="{{ number.profile.image.url }}" class="rounded-circle user_img_msg">
+									{% endfor %}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+
+
+
+
+
+
+
+						</div>
+
+
+
+                          {% for number in chat_user %}
+                        {% for image in chat_ads  %}
+                         <form method="post" action="http://127.0.0.1:8000/inbox/{{ image.id }}/{{ receiver_name}}{% comment %}{% url 'chat_message' %}{{ number.username }}{% endcomment %}" enctype="multipart/form-data">
+                          {% csrf_token %}
+                            {% endfor %}
+						<div class="card-footer">
+							<div class="input-group">
+								<div class="input-group-append">
+									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+								</div>
+
+
+
+
+								<input type="text" class="form-control type_msg" name="message">
+								<div class="input-group-append">
+									<span type="submit" class="input-group-text send_btn"><input type="submit" value="Send">   </span>
+								</div>
+								  {% for image in chat_ads  %}
+								<input type="hidden" name="sender" value="{{ user.username }}">
+								 <input type="hidden" name="group_id" value="{{image.id}}{{ user.id }}{{ number.id }}">
+
+                                <input type="hidden" name="sender_name" value="{{ user.username }}">
+                                      <input type="hidden" name="receiver_name" value="{{ number.username }}">
+                                          <input type="hidden" name="receiver_image" value="{{ number.profile.image }}">
+                                              <input type="hidden" name="sender_image" value="{{ user.profile.image }}">
+
+
+
+								<input type="hidden" name="post_key" value="{{ image.id }}">
+								 {% endfor %}
+
+								  <input type="hidden" name="receiver" value="{{ number.username }}">
+								  {% endfor %}
+								  {% for group in test %}
+                                    {% if group.group_id == '' %}
+                                <input type="hidden" name="group_id" value="{{image.id}}{{ user.id }}{{ number.id }}">
+                                {% else %}
+                                 <input type="hidden" name="group_id" value="{{ group.group_id }}">
+                                {% endif %}
+
+                                {% endfor %}
+
+							</div>
+						</div>
+                             </form>
+					</div>
+				</div>
+				 {% else %}
+
+                    <div class="card">
+<br><br><br>
+                      <h2 class="text-center">Start conversation</h2>
+                    </div>
+
+				 {% endif %}
+			</div>
+        </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}{% for con in conversation %}
+          <p>{{ con.receiver_id}}hussain</p>
+          {% endfor %}
+    {% for i in m|rjust:total_conversation%}
+  <p>{{ conversation }}NN{{ rjust}}</p>
+{% endfor %}
+{{ total_conversation }}{% endcomment %}
+
+
+{% for post in conversation%}
+
+  <p>Manzoor</p>
+    {% endfor %}
+{% for pos in user_list|slice:":5"%}
+
+   {{ pos.username}}
+
+    {% endfor %}
+
+
+    <br>
+
+    <br><br>
+
+
+
+
+
+<script src="{% static 'commerece/js/jquery-2.2.3.min.js' %}"></script>
+    <script src={% static 'commerece/js/jquery.magnific-popup.js' %}">
+<script src="{% static 'commerece/js/SmoothScroll.min.js' %}></script>
+<script src="{% static 'commerece/js/move-top.js' %}"></script>
+<script src="{% static 'commerece/js/easing.js' %}"></script>
+
+
+<script src="{% static 'commerece/js/bootstrap.js' %}"></script>
+    <script>
+    	$(document).ready(function(){
+$('#action_menu_btn').click(function(){
+	$('.action_menu').toggle();
+});
+	});
+    </script>
+
+{% endblock %}

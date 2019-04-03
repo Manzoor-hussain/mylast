@@ -1,0 +1,411 @@
+{% extends 'commerece/base.html' %}
+
+
+{% block body %}
+ {% load staticfiles %}
+
+{% comment %}
+<div class="container" style="margin-top: 10%">
+  <script>window.sessionStorage</script>
+
+    <h2 class="text-center">Register Here</h2>
+    <div class="login-form-grids" style="width: 70%">
+
+        <form  method="post" action="" enctype="multipart/form-data" >
+             {% csrf_token %}
+        <form id="Form1" action="{% url 'send_sms' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="inputNumber">Phone Number</label>
+                    <input type="tel" class="form-control"   form="Form1" name="mobile" id="inputNumber" placeholder="3036445075"  required>
+                </div>
+                 <div  class="form-group col-md-6"  form="From1" class="input-group">
+                     <label for="inputNumber">Verification Code</label>
+        <input type="tel"  placeholder="Verification code" name="code" form="Form2" class="send"  required />
+        <span class="input-group-addon input-group-addon-btn bg-white">
+            <button from="From1" class="buttonInside" style="height: 35px" style="background-color:white" type="submit"  onclick="othername();" data-toggle="modal" data-target="#myModal">Send</button>
+        </span></div>
+            </div>
+        </form>
+    </div>
+    <div class="login-form-grids" style="width: 70%">
+
+<form id="Form2" action="{% url 'create_user_list' %}" method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+
+
+                   <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="inputName">Full Name</label>
+                    <input type="text" class="form-control" form="Form2" name="username" id="inputName" placeholder="Full Name" required onclick="othernamee()">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="text" class="form-control"  form="Form2" id="inputEmail4" name="email" placeholder="Email" required>
+                </div>
+
+
+                <div class="form-group col-md-6">
+                    <label for="inputPassword1">Password</label>
+                    <input type="password" class="form-control" id="inputPassword1" form="Form2" name="password"placeholder="Password" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword">Re Password</label>
+                    <input type="password" class="form-control" id="inputPassword" form="Form2" placeholder="Re Password"  required>
+                </div>
+                        <div class="form-group col-md-6">
+
+                    <input type="hidden" class="form-control" id="numberid"  name="last_name" value="93939324" form="Form2" >
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <div class="register-check-box">
+                <div class="check">
+                    <label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>I accept the terms and
+                        conditions</label>
+                </div>
+            </div>
+
+
+
+            <div class="right-w3l" size="100px">
+                <input type="submit" class="form-control" value="Register" form="Form2" >
+            </div>
+
+
+</form>
+        <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Verification code has been sent to user number</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <div class="register-home">
+        <a href="">Home</a>
+    </div>
+
+</div>
+
+    {% endcomment %}
+
+    <br><br>
+
+    <div class="container">
+    <div class="row">
+<div class="col-md-1"></div>
+
+        <div class="col-md-10">
+
+            <div class="card">
+                <div class="card-header"><h3 class="text-center">Registration</h3></div>
+                <div class="card-body">
+ <form id="Form1" action="{% url 'send_sms' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+             <br>
+            <div class="row">
+
+                <div class="form-group col-md-6">
+                    <label for="inputNumber">Phone Number</label>
+                    <input type="tel" class="form-control"   form="Form1" name="mobile" id="inputNumber" placeholder="3036445075"  required>
+                </div>
+                 <div  class="form-group col-md-5"  form="From1" class="input-group">
+                     <label for="inputNumber">Verification Code</label>
+        <input type="tel"  placeholder="Verification code" name="code" form="Form2" class="send"  required />
+        <span class="input-group-addon input-group-addon-btn bg-white">
+            <button from="From1" class="buttonInside" style="height: 35px" style="background-color:white" type="submit"  onclick="othername();" data-toggle="modal" data-target="#myModal">Send</button>
+        </span>
+                 </div>
+
+            </div>
+        </form>
+ <br><hr>
+
+
+
+<form id="Form2" action="{% url 'create_user_list' %}" method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+
+
+                   <div class="form-row">
+
+
+                <div class="form-group col-md-6">
+                    <label for="inputName">Full Name</label>
+                    <input type="text" class="form-control" form="Form2" name="username" id="inputName" placeholder="Full Name" required onclick="othernamee()">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="text" class="form-control"  form="Form2" id="inputEmail4" name="email" placeholder="Email" required>
+                </div>
+                   </div>
+                 <div class="row">
+
+
+                <div class="form-group col-md-6">
+                    <label for="inputPassword1">Password</label>
+                    <input type="password" class="form-control" id="inputPassword1" form="Form2" name="password"placeholder="Password" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword">Re Password</label>
+                    <input type="password" class="form-control" id="inputPassword" form="Form2" placeholder="Re Password"  required>
+                </div>
+                       <div class="form-group col-md-5">
+
+                    <input type="hidden" class="form-control" id="numberid"  name="last_name" value="93939324" form="Form2" >
+                </div>
+
+
+
+
+
+              </div>
+       <div class="row">
+            <div class="col-sm-3"></div>
+           <div class="col-sm-6">
+ <div class="right-w3l" size="100px">
+                <input type="submit" class="form-control" value="Register" form="Form2" >
+            </div>
+
+           </div>
+       </div>
+
+
+
+</form>
+
+                </div>
+
+            </div>
+            </div>
+<div class="offset-1"></div>
+
+    </div>
+    </div>
+
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Verification code has been sent to user number</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <style>
+
+.buttonInside{
+  position:relative;
+  margin-bottom:10px;
+    background-color: white;
+     border-color: #28ece3;
+}
+.send{
+
+     position:relative;
+  margin-bottom:10px;
+    width: 275px;
+    height: 35px;
+    border-color: #28ece3;
+    backface-visibility: visible;
+    border-width: thin;
+    border-style: outset;
+    padding-left: 20px;
+
+}
+
+
+
+
+    .buttonInside{
+     position:relative;
+      margin-bottom:10px;
+    }
+
+    </style>
+
+
+
+<script>
+
+var num;
+
+function othername() {
+
+    num = document.getElementById("inputNumber").value;
+    var strTest=document.getElementById("inputNumber").value;
+   sessionStorage.setItem("lastname",num);
+
+    vex.dialog.alert({ unsafeMessage: '<b>Message has been send!</b>' })
+   vex.dialog.confirm({
+    message: 'Are you absolutely sure you want to destroy the alien planet?',
+    callback: function (value) {
+        console.log(value)
+
+    }
+})
+
+
+}
+function othernamee(){
+ document.getElementById("numberid").value = sessionStorage.getItem("lastname");
+ vex.dialog.alert({ unsafeMessage: '<b>Message has been send!</b>' })
+
+}
+function message_show(){
+
+    vex.dialog.alert({ unsafeMessage: '<b>Message has been send!</b>' })
+}
+
+$("#erase").click(function(){
+  $(this).prev().val("");
+});
+$("#showPassword").click(function(){
+  var foo = $(this).prev().attr("type");
+  if(foo == "password"){
+    $(this).prev().attr("type", "text");
+  } else {
+    $(this).prev().attr("type", "password");
+  }
+});
+
+//show help
+$("#showHelp").click(function(){
+  $("#help").toggle();
+});
+
+</script>
+<script>
+
+    let today = new Date().toISOString().substr(0, 10);
+    document.querySelector("#today").value = today;
+
+    document.querySelector("#today2").valueAsDate = new Date();
+</script>
+    <script>
+
+    </script>
+
+
+
+
+
+
+
+<script src="{% static 'commerece/js/jquery-2.2.3.min.js' %}"></script>
+<!-- //jquery -->
+
+<!-- nav smooth scroll -->
+
+<!-- //nav smooth scroll -->
+
+<!-- popup modal (for location)-->
+<script src={% static 'commerece/js/jquery.magnific-popup.js' %}">
+
+
+	<!-- //popup modal (for location)-->
+
+	<!-- cart-js -->
+
+	<!-- //cart-js -->
+
+	<!-- password-script -->
+
+	<!-- //password-script -->
+
+
+
+	<!-- smoothscroll -->
+	<script src="{% static 'commerece/js/SmoothScroll.min.js' %}></script>
+<!-- //smoothscroll -->
+
+<!-- start-smooth-scrolling -->
+<script src="{% static 'commerece/js/move-top.js' %}"></script>
+<script src="{% static 'commerece/js/easing.js' %}"></script>
+
+<!-- //end-smooth-scrolling -->
+
+<!-- smooth-scrolling-of-move-up -->
+
+
+<!-- for bootstrap working -->
+<script src="{% static 'commerece/js/bootstrap.js' %}"></script>
+
+
+
+
+
+
+
+
+
+<script>
+    window.onload = function () {
+        document.getElementById("inputPassword1").onchange = validatePassword;
+        document.getElementById("inputPassword").onchange = validatePassword;
+        document.getElementById("inputNumber").onchange=validatenumber();
+    }
+    function validatenumber () {
+          var pass1 = document.getElementById("inputMobile").value;
+        var x = document.forms["myForm"]["mobile"].value;
+        if (pass1.sizes=10)
+        {
+            document.getElementById("inputMobile").setCustomValidity("Passwords Don't Match");
+        }
+        //    document.getElementById("inputPassword1").setCustomValidity("Passwords Don't Match");
+
+    }
+
+    function validatePassword() {
+        var pass2 = document.getElementById("inputPassword1").value;
+        var pass1 = document.getElementById("inputPassword").value;
+      //  if (pass1 != pass2)
+        //    document.getElementById("inputPassword1").setCustomValidity("Passwords Don't Match");
+        //else
+          //  document.getElementById("inputPassword").setCustomValidity('');
+        //empty string means no validation error
+    }
+</script>
+
+{% endblock %}
+
+<!-- banner -->
+
+
+
+

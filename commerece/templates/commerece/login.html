@@ -1,0 +1,33 @@
+{% extends 'commerece/base.html' %}
+{% load rest_framework %}
+
+
+{% block body %}
+
+
+
+    <div class="login">
+    <div class="container">
+        <h2 class="text-center">Login Form</h2>
+
+        <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+            {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+            <form  method="post" action="{% url  'login_user' %}" {% comment %} role="form" action="{% url 'commerece:commerece/login_user'%}" method="post"{% endcomment %} enctype="multipart/form-data">
+                  {% csrf_token %}
+                <input type="text" name="username" placeholder="Email Address" required=" ">
+                <input type="password" name="password" placeholder="Password" required=" ">
+                <div class="forgot">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <h4>For New People</h4>
+        <p><a href="{% url 'register' %}">Register Here</a> (Or) go back to <a href="">Home<span
+                class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+    </div>
+</div>
+
+{% endblock %}

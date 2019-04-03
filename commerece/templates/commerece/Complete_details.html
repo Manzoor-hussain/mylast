@@ -1,0 +1,386 @@
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+{% extends 'commerece/home.html' %}
+
+
+
+
+
+
+{% load staticfiles %}
+
+
+
+{% comment %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Card</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js" ></script>
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+
+
+<body>{% endcomment %}
+
+
+{% block body %}
+     {% load staticfiles %}
+<style>
+/* Main carousel style */
+.carousel {
+    width: 700px;
+}
+
+/* Indicators list style */
+.article-slide .carousel-indicators {
+    bottom: 0;
+    left: 0;
+    margin-left: 5px;
+    width: 80%;
+}
+/* Indicators list style */
+.article-slide .carousel-indicators li {
+    border: medium none;
+    border-radius: 0;
+    float: left;
+    height: 54px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 5px !important;
+    margin-top: 0;
+    width: 100px;
+}
+/* Indicators images style */
+.article-slide .carousel-indicators img {
+    border: 2px solid #FFFFFF;
+    float: left;
+    height: 54px;
+    left: 0;
+    width: 100px;
+}
+/* Indicators active image style */
+.article-slide .carousel-indicators .active img {
+    border: 2px solid #428BCA;
+    opacity: 0.7;
+}
+
+
+
+
+
+
+</style>
+
+<br><br><br>
+    <div  class="container">
+{%  for list in ads %}
+<div class="row" style="">
+
+
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="carousel slide article-slide" id="article-photo-carousel" >
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner cont-slider" style="margin-left: 10px">
+
+    <div class="item active">
+      <img alt="" title="" src="{{  list.product_image.url }}" width="700" height="400">
+    </div>
+    <div class="item">
+      <img alt="" title=""  src="{{  list.product_image_one.url }}" width="700" height="400"{% comment %}src="http://placehold.it/600x400"{% endcomment %}>
+    </div>
+    <div class="item">
+      <img alt="" title=""  src="{{  list.product_image.url }}" width="700" height="400">
+    </div>
+    <div class="item">
+      <img alt="" title=""  src="{{  list.product_image.url }}" width="700" height="400">
+    </div>
+  </div>
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li class="active" data-slide-to="0" data-target="#article-photo-carousel">
+      <img alt=""  src="{{  list.product_image.url }}" width="250" height="180"{% comment %}src="http://placehold.it/250x180"{% endcomment %}>
+    </li>
+    <li class="" data-slide-to="1" data-target="#article-photo-carousel">
+      <img alt="" src="{{  list.product_image_one.url }}" width="250" height="180">
+    </li>
+    <li class="" data-slide-to="2" data-target="#article-photo-carousel">
+      <img alt="" src="{{  list.product_image.url }}" width="250" height="180">
+    </li>
+    <li class="" data-slide-to="3" data-target="#article-photo-carousel">
+      <img alt="" src="{{  list.product_image.url }}" width="250" height="180">
+    </li>
+  </ol>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4" >
+
+    <div class="card w-85">
+  <div class="card-body">
+ <h3>Product Name: {{ list.product_name }}</h3>
+    <h4 class="card-title"> RS {{ list.product_price }}</h4>
+
+      <p>Address: {{ list.city }} {{ list.province }}</p>
+    <p class="card-text">{{ list.created_at }}</p>
+
+  </div>
+</div>
+     <div class="card w-80" style="margin-top: 10px">
+  <div class="card-body">
+   {% for number in seller_user %}
+
+            {% if list.customer == 'seller' %}
+      <h3 class="card-title">Seller Description</h3>
+
+
+
+       <div class="row">
+                  <img src="{{  number.profile.image.url }}"  style="height: 70px; margin-left: 20px" alt=" " class="img-fluid" >
+            <p style="margin-left: 40px; margin-top: 12px; margin-right: 30px"> User Name:  {{number.username}}</p>
+           <a href="#"> <i style="font-size: 40px;" class="fas fa-angle-right"></i></a>
+            </div>
+              <a href="/inbox/{{ list.id }}/{{ number.username}}"> <button class="btn btn-primary" style="width: 250px; height: 40px; margin-left: 20px;margin-top: 20px"><b>Chat with Seller</b></button>
+        </a>
+               {% else %}
+                <h3 class="card-title">Buyer Description</h3>
+
+
+
+       <div class="row" style="margin-top: 30px; margin-bottom: 30px">
+                  <img src="{{  number.profile.image.url }}"  style="height: 70px; margin-left: 20px" alt=" " class="img-fluid" >
+
+            <p style="margin-left: 40px; margin-top: 12px; margin-right: 30px"> User Name:{{number.username}}</p>
+          <a href="#"> <i style="font-size: 40px;" class="fas fa-angle-right"></i></a>
+            </div>
+
+
+              <a href="/inbox/{{ list.id }}/{{ number.username}}"> <button class="btn btn-primary" style="width: 250px; height: 40px; margin-left: 20px; margin-top: 10px"><b>Chat with Buyer</b></button>
+        </a> <br>
+               {% endif %}
+
+           {% endfor %}
+  </div>
+</div>
+<br><br>
+
+  </div>
+
+
+
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+    <div class="container">
+<div class="row" >
+
+  <div class="col-sm-8">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Details</h3>
+        <div class="row">
+            <div class="col-sm-3">
+                <p>Price</p>
+            </div>
+            <div class="col-sm-3">
+                <p>Rs : {{ list.product_price }}</p>
+            </div>
+            <div class="col-sm-3">
+                <p>Quantity</p>
+            </div>
+            <div class="col-sm-3">
+                <p>{{ list.product_quentity }} :KG</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <p>Quality</p>
+            </div>
+            <div class="col-sm-3">
+                <p>{{ list.product_quality }}</p>
+            </div>
+            <div class="col-sm-3">
+                <p>Shipping</p>
+            </div>
+            <div class="col-sm-3">
+                <p>{{ list.product_shiping }}</p>
+            </div>
+        </div>
+          <hr>
+          <h4>Description</h4>
+          <p>{{ list.description }}</p>
+          <p>This vegetables is very good condition</p>
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+   <div class="col-md-4">
+        <div class="card w-85" >
+        <div class="card-body">
+<p>Posted in {{ list.city  }}, {{ list.province }}</p>
+        <div id="mapp" style="height: 250px" >
+
+
+
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+{% endfor %}
+
+ <style>
+   {% comment %}  #mapp {
+        height: 300px;  /* The height is 400 pixels */
+        width: 20%;  }{% endcomment %}
+    </style>
+
+
+<script>
+    // Stop carousel
+$('.carousel').carousel({
+  interval: false
+});
+
+</script>
+
+<script>
+
+      var map, infoWindow;
+      function initMapp() {
+
+
+              // console.log(position.coords.longitude)
+              //codeLatLng(position.coords.latitude,position.coords.longitude);
+              {% for map in ads %}
+              mymap({{ map.latitude}},{{ map.langitude }});
+              {% endfor %}
+
+      }
+      function mymap(lat,lang) {
+
+          map = new google.maps.Map(document.getElementById('mapp'), {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 10
+          });
+
+
+
+          // Try HTML5 geolocation.
+
+
+          var sydney = new google.maps.LatLng(lat, lang);
+
+
+          infowindow = new google.maps.InfoWindow();
+
+          map = new google.maps.Map(
+              document.getElementById('mapp'), {center: sydney, zoom: 15});
+
+          var request = {
+              query: 'Museum of Contemporary Art Australia',
+              fields: ['name', 'geometry'],
+          };
+           var mm=document.getElementById('mapp');
+
+          service = new google.maps.places.PlacesService(map);
+
+
+          service.findPlaceFromQuery(request, function (results, status) {
+              if (status === google.maps.places.PlacesServiceStatus.OK) {
+                  for (var i = 0; i < results.length; i++) {
+                      createMarker(results[i]);
+                  }
+
+                  map.setCenter(results[0].geometry.location);
+              }
+          });
+
+
+          function createMarker(place) {
+              var marker = new google.maps.Marker({
+                  map: map,
+                  position: place.geometry.location
+              });
+
+
+              google.maps.event.addListener(marker, 'click', function () {
+                  infowindow.setContent(place.name);
+
+                  infowindow.open(map, this);
+
+              });
+
+
+             // alert(txtCityName);
+
+
+
+          }
+
+
+
+
+
+
+
+  }
+    </script>
+
+
+
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq-ujHaiq-3WfIa0KDqJY_aew7pzGxdmc&callback=initMapp">
+    </script>
+
+
+
+{% comment %}
+</body>
+</html>
+{% endcomment %}
+{% endblock %}

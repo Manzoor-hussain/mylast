@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {% block title %}Mandi{% endblock %}</title>
+    {% load staticfiles %}
+    <title>Electro Store Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Eb Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- //Meta tag Keywords -->
+     <link rel="stylesheet" type="text/css" href="{% static 'commerece/css/style.css' %}"/>
+     <link href="{% static 'commerece/css_new/footer.css' %}" rel="stylesheet" type="text/css" media="all" />
+     <link href="{% static 'commerece/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+
+  <link  rel="stylesheet" href="{% static 'commerece/css_new/bootstrap.css' %}"  type="text/css" media="all" />
+    <link  rel="stylesheet" href="{% static 'commerece/css_new/bootstrap-grid.css' %}" rel="stylesheet" type="text/css" media="all" />
+     <link href="{% static 'commerece/css_new/bootstrap-reboot.css' %}" rel="stylesheet" type="text/css" media="all" />
+     <link rel="stylesheet" href="{% static 'commerece/css/fontawesome-all.css' %}">
+     <link href="{% static 'commerece/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
+ <link href ="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!------ Carousel ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+    <!-- web fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+          rel="stylesheet">
+
+
+
+</head>
+<body>
+
+
+<!-- top-header -->
+	<div class="agile-main-top">
+		<div class="container-fluid">
+			<div class="row main-top-w3l py-2">
+				<div class="col-lg-4 header-most-top">
+					<p class="text-white text-lg-left text-center">Offer Zone Top Deals & Discounts
+						<i class="fas fa-shopping-cart ml-1"></i>
+					</p>
+				</div>
+				<div class="col-lg-8 header-right mt-lg-0 mt-2">
+					<!-- header lists -->
+					<ul>
+						<li class="text-center border-right text-white">
+							<a class="play-icon popup-with-zoom-anim text-white" href="#small-dialog1">
+								<i class="fas fa-map-marker mr-2"></i>Select Location</a>
+						</li>
+						<li class="text-center border-right text-white">
+							<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
+								<i class="fas fa-truck mr-2"></i>Track Order</a>
+						</li>
+						<li class="text-center border-right text-white">
+							<i class="fas fa-phone mr-2"></i> 001 234 5678
+						</li>
+						<li class="text-center border-right text-white">
+							<a href="{% url 'login' %}" class="text-white">
+								<i class="fas fa-sign-in-alt mr-2"></i> Log In </a>
+						</li>
+						<li class="text-center text-white">
+							<a href="{% url 'register' %}"clapython class="text-white">
+								<i class="fas fa-sign-out-alt mr-2"></i>Register </a>
+						</li>
+					</ul>
+					<!-- //header lists -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Button trigger modal(select-location) -->
+	<div id="small-dialog1" class="mfp-hide">
+		<div class="select-city">
+			<h3>
+				<i class="fas fa-map-marker"></i> Please Select Your Location</h3>
+			<select class="list_of_cities">
+				<optgroup label="Popular Cities">
+					<option selected style="display:none;color:#eee;">Select City</option>
+					<option>Birmingham</option>
+					<option>Anchorage</option>
+					<option>Phoenix</option>
+					<option>Little Rock</option>
+					<option>Los Angeles</option>
+					<option>Denver</option>
+					<option>Bridgeport</option>
+					<option>Wilmington</option>
+					<option>Jacksonville</option>
+					<option>Atlanta</option>
+					<option>Honolulu</option>
+					<option>Boise</option>
+					<option>Chicago</option>
+					<option>Indianapolis</option>
+				</optgroup>
+				<optgroup label="Wyoming">
+					<option>Cheyenne</option>
+					<option>Casper</option>
+					<option>Laramie</option>
+					<option>Gillette</option>
+					<option>Rock Springs</option>
+				</optgroup>
+			</select>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- //shop locator (popup) -->
+
+	<!-- //top-header -->
+
+	<!-- header-bottom-->
+	<div class="header-bot">
+		<div class="container">
+			<div class="row header-bot_inner_wthreeinfo_header_mid">
+				<!-- logo -->
+				<div class="col-md-3 logo_agile">
+					<h1 class="text-center">
+						<a href="index.html" class="font-weight-bold font-italic">
+							<img src="{% static 'commerece/images/logo2.png' %}" alt=" " class="img-fluid">Sabzi Mandi
+						</a>
+					</h1>
+				</div>
+				<!-- //logo -->
+				<!-- header-bot -->
+				<div class="col-md-9 header mt-4 mb-md-0 mb-4">
+					<div class="row">
+						<!-- search -->
+						<div class="col-10 agileits_search">
+							<form class="form-inline" action="#" method="post">
+								<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+								<button class="btn my-2 my-sm-0" type="submit">Search</button>
+							</form>
+						</div>
+						<!-- //search -->
+						<!-- cart details -->
+						<div class="col-2 top_nav_right text-center mt-sm-0 mt-2">
+							<div class="wthreecartaits wthreecartaits2 cart cart box_1">
+								<form action="#" method="post" class="last">
+									<input type="hidden" name="cmd" value="_cart">
+									<input type="hidden" name="display" value="1">
+									<button class="btn w3view-cart" type="submit" name="submit" value="">
+										<i class="fas fa-cart-arrow-down"></i>
+									</button>
+								</form>
+							</div>
+						</div>
+						<!-- //cart details -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- shop locator (popup) -->
+	<!-- //header-bottom -->
+	<!-- navigation -->
+	<div class="navbar-inner">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="agileits-navi_search">
+					<form action="#" method="post">
+						<select id="agileinfo-nav_search" name="agileinfo_search" class="border" required="">
+							<option value="">All Categories</option>
+							<option value="Televisions">Fruits</option>
+							<option value="Headphones">Vegetables</option>
+							<option value="Computers">Pumpkin</option>
+							<option value="Appliances">Lady Fingers</option>
+
+						</select>
+					</form>
+				</div>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto text-right mr-xl-5">
+						<li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link" href="{% url 'details_home_display' %}">Home
+								<span class="sr-only">(current)</span>
+							</a>
+
+						</li>
+
+
+                        <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Seller
+							</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="{% url 'seller_post' %}">Post A Request</a>
+								<a class="dropdown-item" href="{% url 'details_myads' %}">View Post</a>
+								<a class="dropdown-item" href="{% url 'details_seller_request' %}">View Seller Request</a>
+
+
+							</div>
+						</li>
+
+						<li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Buyer
+							</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="{% url 'buyer_post' %}">Post An Order</a>
+								<a class="dropdown-item" href="{% url 'details_order_method' %}">View Order</a>
+								<a class="dropdown-item" href="{% url 'details_buyer_order' %}">View Order others</a>
+
+
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'contactt' %}">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+<!-- page -->
+
+
+
+
+	<!-- banner -->
+
+
+
+
+
+{% if index == 'True' %}
+    <br><br><br>
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<!-- Indicators-->
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+		</ol>
+
+		<div class="carousel-inner">
+			<div class="carousel-item item1 active">
+				<div class="container">
+					<div class="w3l-space-banner">
+
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item item2">
+				<div class="container">
+
+				</div>
+			</div>
+			<div class="carousel-item item3">
+				<div class="container">
+
+				</div>
+			</div>
+			<div class="carousel-item item4">
+				<div class="container">
+
+
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+	<!-- //banner -->
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+
+
+
+
+
+
+        .login-form-grids{
+	width: 45%;
+    padding: 3em;
+	background:#F7F7F9;
+	margin:3em auto 0;
+}
+.login-form-grids input[type="email"],.login-form-grids input[type="password"],.login-form-grids input[type="text"]{
+	outline: none;
+    border: 1px solid #DBDBDB;
+    padding: 10px 10px 10px 10px;
+    font-size: 14px;
+    color: #999;
+    display: block;
+    width: 100%;
+}
+
+.login-form-grids input[type="password"]{
+	margin:1em 0 0;
+}
+.forgot {
+    margin: 1.5em 0 0;
+}
+.login-form-grids input[type="submit"]{
+	outline: none;
+    border: none;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #fff;
+    display: block;
+    width: 100%;
+    background:#3399cc;
+    margin: 1.5em 0 0;
+}
+.login-form-grids input[type="submit"]:hover{
+	background:#fe9126;
+}
+.login-form-grids ::-webkit-input-placeholder{
+	color:#999;
+}
+.forgot a{
+	color:#212121;
+	font-size:14px;
+	text-decoration:none;
+}
+.forgot a:hover{
+	color:#d8703f;
+}
+.login h4{
+	margin: 2em 0 0.5em;
+    font-size: 1.5em;
+    color: #212121;
+    text-align: center;
+    text-transform: uppercase;
+}
+.login p{
+	font-size:14px;
+	color:#999;
+	line-height:1.8em;
+	margin:0;
+	text-align:center;
+}
+.login p a{
+	color:#fe9126;
+	text-decoration:none;
+	font-size: 1.2em;
+	padding: 0 .5em;
+}
+.login p a:hover{
+	color:#212121;
+}
+.login p a span{
+	top: 0.1em;
+    font-size: .7em;
+    left: 0.3em;
+}
+.login {
+    padding: 5em 0;
+}
+
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>{% endcomment %}
+
+{% block body %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+
+
+<!---  Footer !--->
+<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 w3_footer_grid" col-sm-6>
+					<h3>Contact</h3>
+
+					<ul class="address">
+						<li><i class="fas fa-map-marker" aria-hidden="true"></i>1234k Avenue</li>
+						<li><i class="fas fa-envelope-open" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+						<li><i class="fas fa-mobile" aria-hidden="true"></i>+1234 567 567</li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid col-sm-6">
+					<h3>Information</h3>
+					<ul class="info">
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">About Us</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Contact Us</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="short-codes.html">Short Codes</a></li>
+
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid col-sm-6">
+					<h3>Category</h3>
+					<ul class="info">
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="groceries.html">Groceries</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="household.html">Household</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="personalcare.html">Personal Care</a></li>
+
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid col-sm-6">
+					<h3>Profile</h3>
+					<ul class="info">
+
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="checkout.html">My Cart</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="login.html">Login</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="registered.html">Create Account</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+	<div class="footer-botm">
+			<div class="container">
+				<div class="w3layouts-foot">
+					<ul>
+
+                      <li><a class="icon fb" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a class="icon tw" href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a class="icon gp" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+					</ul>
+				</div>
+				<div class="payment-w3ls">
+					<img src="{% static 'commerece/images/card.png' %}" alt=" " class="img-responsive">
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+    </div>
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
